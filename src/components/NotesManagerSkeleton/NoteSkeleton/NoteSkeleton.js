@@ -1,12 +1,13 @@
 import React from "react";
-import "./Note.css";
+import "./NoteSkeleton.css";
 
 const dateOptions = {
   timeStyle: "medium",
   dateStyle: "medium",
 };
 
-function Note(props) {
+function NoteSkeleton(props) {
+  // formats the Date value received from props
   const dateString = props.note.dateCreated.toLocaleString([], dateOptions);
   return (
     <div className="Note">
@@ -23,4 +24,4 @@ function Note(props) {
   );
 }
 
-export default Note;
+export default NoteSkeleton;

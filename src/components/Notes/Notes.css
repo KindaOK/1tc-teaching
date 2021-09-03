@@ -1,4 +1,9 @@
 .Notes {
-    flex-direction: column-reverse;
+    flex-direction: column;
     display: flex;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
 }

@@ -1,31 +1,31 @@
 import React, { useState, useEffect } from "react";
 import Note from "./Note/Note";
-import "./Notes.css"
+import "./Notes.css";
 
 function Notes() {
   const [notes, setNotes] = useState([
-    { title: "hi", text: "name", dateCreated: new Date() },
+    { title: "hi", body: "name", dateCreated: new Date() },
   ]);
 
   const [newNote, setNewNote] = useState({
     title: "",
-    text: "",
+    body: "",
     dateCreated: new Date(),
   });
 
   const addNote = () => {
     // update the notes list and set the creation time of the newest note to now
-    setNotes([...notes, { ...newNote, dateCreated: new Date() }]);
+    setNotes([{ ...newNote, dateCreated: new Date() }, ...notes]);
     // clear out the new note form
     setNewNote({
       title: "",
-      text: "",
+      body: "",
       dateCreated: new Date(),
     });
   };
 
   // remove the given note and update the state
-  const handleRemoveNote = (index) =>
+  const removeNote = (index) =>
     // keep all notes except for the once matching the index
     setNotes(notes.filter((_, i) => index !== i));
 
@@ -34,6 +34,9 @@ function Notes() {
     // try to load any saved notes
     //  if there are no saved notes, then parse an empty array
     const savedNotes = JSON.parse(localStorage.getItem("notes") ?? "[]");
+    savedNotes.forEach(
+      (note) => (note.dateCreated = new Date(note.dateCreated))
+    );
     if (savedNotes?.length) {
       setNotes(savedNotes);
     }
@@ -47,33 +50,35 @@ function Notes() {
 
   return (
     <>
-      <div>
+      <div className="inputs">
         <label>
-          Title
+          Title:&nbsp;
           <input
-              value={newNote.title}
+            value={newNote.title}
             onChange={(event) =>
               setNewNote({ ...newNote, title: event.target.value })
             }
           />
         </label>
         <label>
-          Text
+          Body:&nbsp;
           <input
-              value={newNote.text}
+            value={newNote.body}
             onChange={(event) =>
-              setNewNote({ ...newNote, text: event.target.value })
+              setNewNote({ ...newNote, body: event.target.value })
             }
           />
         </label>
-        <button onClick={addNote}>Add Note</button>
+        <button onClick={addNote} disabled={!newNote.body && !newNote.title}>
+          Add Note
+        </button>
       </div>
       <div className="Notes">
         {notes.map((note, i) => (
           // using the unique field (time) as the update hint
           <Note
             note={note}
-            deleteFunction={() => handleRemoveNote(i)}
+            deleteFunction={() => removeNote(i)}
             key={note.dateCreated}
           />
         ))}
