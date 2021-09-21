@@ -32,7 +32,8 @@ If you have questions, send an email to leadership or attend an office hours.
 Required Tools:
 * Text Editor or IDE
   - If you have experience with web development and have an editor you are comfortable with, use it
-* Node.js (version 1.16 or later)
+* [Node.js](https://nodejs.org/en/download/) (version 1.16 or later)
+  - Using the installer or binaries for your machine is recommended over using a package manager
 * Git (Github Desktop also works)
 * Browser (Chromium and Firefox are what we will focus on)
 If you have no experience in web development, go to [IDE Setup](#ide-setup)
