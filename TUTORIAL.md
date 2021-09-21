@@ -12,6 +12,12 @@ the [MDN JavaScript Tutorial](https://developer.mozilla.org/en-US/docs/Learn/Jav
 The [CSS tutorial](https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps) is also useful, but should not be
 your primary concern.
 
+Some more resources about the project structure and web development can be found below
+* [What is npm?](https://nodejs.dev/learn/an-introduction-to-the-npm-package-manager)
+* [What is the `package.json` file](https://nodejs.dev/learn/the-package-json-guide)
+* [Javascript Fundamentals in React](https://www.robinwieruch.de/javascript-fundamentals-react-requirements)
+* [What are all of the files in a Create React App Project?](https://medium.com/@abesingh1/create-react-app-files-folders-structure-explained-df24770f8562)
+
 This tutorial does assume that you have basic knowledge of JavaScript and of HTML, so be sure to check the tutorials if
 you find yourself getting lost in either of those.
 
